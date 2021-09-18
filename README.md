@@ -12,3 +12,6 @@ You must copy your jupyter notebook in this script folder.
 chmod +x notebook2markdown.py 
 ./notebook2markdown.py filename.ipynb
 ```
+## Convertion example 
+
+![](./Images/example.jpg)
