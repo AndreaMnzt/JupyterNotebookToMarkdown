@@ -86,9 +86,13 @@ def main():
         # get the cell text and save in the md file
         if 'source' in cell:
 
+            # if the cell is code add the markdown code syntax before the text
+            if cell['cell_type']=="code":
+                md_notebook.writelines("```\n")
+
             # for every text part in the cell (the cell has several text parts)
             for text in cell['source']:
-
+                
                 new_text = text
 
                 # if there is attachment in the cell
@@ -117,6 +121,11 @@ def main():
 
                 # write the text in the md
                 md_notebook.writelines(new_text)
+                
+            # if the cell is code add the markdown code syntax after the text
+            if cell['cell_type']=="code":
+                md_notebook.writelines("\n```")
+
 
             md_notebook.writelines("\n\n") # new line at the end of a cell
 
